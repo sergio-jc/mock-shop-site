@@ -1,0 +1,134 @@
+---
+import type { Props } from "@astrojs/starlight/props";
+---
+
+<footer class="site-footer">
+  <hr class="footer-divider" />
+  <div class="footer-inner">
+    <p class="footer-credit">
+      ✨ Built by
+      <a
+        href="https://github.com/sergio-jc"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="footer-author"
+      >
+        sergio-jc
+      </a>
+    </p>
+    <div class="footer-links">
+      <a
+        href="https://github.com/sergio-jc/mock-shop-api"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="footer-link"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+          ></path>
+        </svg>
+        API Repo
+      </a>
+      <span class="footer-separator" aria-hidden="true">·</span>
+      <a
+        href="https://github.com/sergio-jc/mock-shop-site"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="footer-link"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+          ></path>
+        </svg>
+        Site Repo
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: 2rem;
+    padding: 0 var(--sl-content-pad-x, 1rem);
+  }
+
+  .footer-divider {
+    border: none;
+    border-top: 1px solid var(--sl-color-hairline);
+    margin: 0;
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.875rem 0;
+    font-size: 0.8125rem;
+    color: var(--sl-color-gray-3);
+  }
+
+  .footer-credit {
+    margin: 0;
+  }
+
+  .footer-author {
+    color: var(--sl-color-text-accent);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    margin-left: 0.25rem;
+    transition: color 0.15s;
+  }
+
+  .footer-author:hover {
+    color: var(--sl-color-accent-high);
+  }
+
+  .footer-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--sl-color-gray-3);
+    text-decoration: none;
+    padding: 0.25rem 0.625rem;
+    border: 1px solid var(--sl-color-hairline);
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    transition:
+      color 0.15s,
+      border-color 0.15s,
+      background 0.15s;
+  }
+
+  .footer-link:hover {
+    color: var(--sl-color-text);
+    border-color: var(--sl-color-accent);
+    background: var(--sl-color-bg-nav);
+  }
+
+  .footer-separator {
+    color: var(--sl-color-hairline);
+  }
+</style>

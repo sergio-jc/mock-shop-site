@@ -35,6 +35,9 @@ export default defineConfig({
         },
       ],
       plugins: [starlightThemeGalaxy()],
+      components: {
+        Footer: "./src/components/Footer.astro",
+      },
     }),
   ],
 });
