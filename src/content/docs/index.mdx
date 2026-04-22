@@ -1,34 +1,52 @@
 ---
 title: Mock Shop API
-description: API pública para simular un e-commerce — productos, órdenes e inventario.
+description: Public API for simulating an e-commerce backend — products, orders, and inventory.
 template: splash
+hero: false
 ---
 
 import UrlBox from "../../components/UrlBox.astro";
 
 export const BASE_API_URL = import.meta.env.BASE_API_URL ?? 'https://api.mockshop.dev';
 
-## Mock Shop API
+Production-ready REST + GraphQL API that simulates an e-commerce backend. It is designed as a reference project to demonstrate modern Node.js architecture patterns: dual-transport APIs, DataLoader-based N+1 prevention, distributed tracing with OpenTelemetry, and edge-compatible databases.
 
-API pública para simular un e-commerce. Accedé a productos, órdenes e inventario
-tanto por REST como por GraphQL, sin autenticación para endpoints de lectura.
+:::note
+This demo is hosted on infrastructure that may enter sleep mode after extended inactivity. If the service is idle, the first request may take a few minutes while the server wakes up before returning to normal response times.
+:::
+<UrlBox label="Base URL" url={BASE_API_URL} />
+<UrlBox label="REST API Doc" url={`${BASE_API_URL}/api-docs`} />
+<UrlBox label="GraphQL Playground" url={`${BASE_API_URL}/graphql`} />
 
-<UrlBox label="Base API URL" url={BASE_API_URL} />
 
 ---
 
 ## API REST
 
+RESTful endpoints with JSON responses, versioned by URI (for example, `/v1/products`). This makes it possible to evolve the API contract without breaking existing or future integrations.
+
 <UrlBox label="REST API URL" url={`${BASE_API_URL}/v1`} />
 
-Endpoints RESTful con respuestas en JSON. Los endpoints de lectura son públicos;
-las operaciones de escritura requieren un token Bearer en el header `Authorization`.
+Full interactive documentation is available in Swagger.
+
+<UrlBox label="Swagger / API Docs" url={`${BASE_API_URL}/api-docs`} />
+
+**Key features**
+
+- **URI-based versioning** — all endpoints are grouped under `/v1/...`, allowing you to adopt changes at your own pace.
+- **Global rate limiting** — 60 requests/minute per IP. Internal integrations can bypass this limit by sending a valid `X-API-Key` header.
+- **Swagger documentation** — explore endpoints, request/response schemas, and error formats through an interactive UI without manual inspection.
 
 ---
 
 ## GraphQL
 
-<UrlBox label="GraphQL API URL" url={`${BASE_API_URL}/graphql`} />
+Single endpoint. Send `POST` requests with a JSON body containing your query. The GraphiQL playground and schema documentation are available at the same URL.
 
-Endpoint único. Enviá peticiones `POST` con un body JSON que contenga tu query.
-Explorá el schema completo en el playground integrado.
+<UrlBox label="GraphQL Playground" url={`${BASE_API_URL}/graphql`} />
+
+**Key features**
+
+- **Code-first schema** — generated directly from TypeScript decorators, keeping resolver logic and schema definitions continuously synchronized.
+- **N+1 prevention with DataLoader** — request-scoped DataLoaders batch and cache relationship fetches, significantly reducing database round trips in nested queries.
+- **Depth protection** — queries with more than 6 levels of nesting are automatically rejected to protect server resources.

@@ -8,7 +8,7 @@ const { label, url } = Astro.props;
 
 <div class="url-box">
   <span class="url-label">{label}</span>
-  <span class="url-value">{url}</span>
+  <a class="url-value" href={url} target="_blank">{url}</a>
 
   <!-- Copy button -->
   <button class="copy-btn" data-url={url} aria-label="Copy URL" title="Copy URL">
@@ -44,7 +44,7 @@ const { label, url } = Astro.props;
     white-space: nowrap;
     flex-shrink: 0;
     font-family: monospace;
-    opacity: 0.5;
+    opacity: 0.7;
   }
 
   .url-value {
