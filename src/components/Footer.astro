@@ -65,7 +65,6 @@ import type { Props } from "@astrojs/starlight/props";
 <style>
   .site-footer {
     margin-top: 2rem;
-    padding: 0 var(--sl-content-pad-x, 1rem);
   }
 
   .footer-divider {
@@ -79,7 +78,6 @@ import type { Props } from "@astrojs/starlight/props";
     align-items: center;
     justify-content: space-between;
     padding: 0.875rem 0;
-    font-size: 0.8125rem;
     color: var(--sl-color-gray-3);
   }
 
@@ -104,6 +102,7 @@ import type { Props } from "@astrojs/starlight/props";
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    font-size: 0.85rem; 
   }
 
   .footer-link {
@@ -115,7 +114,6 @@ import type { Props } from "@astrojs/starlight/props";
     padding: 0.25rem 0.625rem;
     border: 1px solid var(--sl-color-hairline);
     border-radius: 0.25rem;
-    font-size: 0.75rem;
     transition:
       color 0.15s,
       border-color 0.15s,
